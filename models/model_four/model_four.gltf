@@ -1,0 +1,27 @@
+{
+	"asset":{
+		"generator":"Khronos glTF Blender I/O v4.5.48",
+		"version":"2.0"
+	},
+	"scene":0,
+	"scenes":[
+		{
+			"name":"Scene",
+			"nodes":[
+				0
+			]
+		}
+	],
+	"nodes":[
+		{
+			"name":"Scene Collection"
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"textur-gas-kvas-com-5gk8-p-tekstura-material-kirpicha-2",
+			"uri":"textur-gas-kvas-com-5gk8-p-tekstura-material-kirpicha-2.png"
+		}
+	]
+}
