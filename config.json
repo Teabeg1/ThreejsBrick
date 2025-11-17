@@ -1,0 +1,35 @@
+{
+  "models": {
+    "plane": {
+      "name": "Коттедж",
+      "path": "./models/cottege2/scene.gltf"
+    }
+  },
+  "textures": {
+    "brick_yellow": {
+      "name": "Темный кирпич",
+      "path": "./textures/test2/test3.gltf",
+      "tags": {
+        "type": "brick",
+        "variant": "yellow"
+      }
+    },
+    "brick_mixed": {
+      "name": "Смешанный кирпич",
+      "path": "./textures/mixed_brick/mixed_brick_wall_2k.gltf",
+      "tags": {
+        "type": "brick",
+        "variant": "mixed"
+      }
+    },
+    "stone_rock": {
+      "name": "Скальный камень",
+      "path": "./textures/rock_ball/rock_wall_15_4k.gltf",
+      "tags": {
+        "type": "stone",
+        "variant": "rock"
+      }
+    }
+  }
+}
+

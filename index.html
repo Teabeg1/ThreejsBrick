@@ -1,32 +1,71 @@
-<!--
-  EYE FREE MODEL 3D BY Oscar creativo by OSCAR CREATIVO is licensed under Creative Commons Attribution.
-  Juvenile Teratophoneus curriei by rankinstudio is licensed under Creative Commons Attribution.
--->
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <title>A simple Three.JS App</title>
+    <title>Brick Visualizer</title>
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      :root { color-scheme: dark light; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      header { padding: 12px 16px; border-bottom: 1px solid #4443; }
+      h1 { margin: 0 0 8px; font-size: 20px; }
+      .panel { display: grid; gap: 12px; grid-template-columns: 1fr; max-width: 900px; margin: 0 auto; }
+      fieldset { border: 1px solid #6665; border-radius: 10px; padding: 8px 12px; }
+      legend { padding: 0 6px; opacity: 0.9; }
+      .options { display: flex; gap: 12px; flex-wrap: wrap; }
+      .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      .btn { padding: 8px 14px; border-radius: 10px; border: 1px solid #6665; cursor: pointer; background: transparent; }
+      .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+      main { position: relative; padding: 12px 16px; }
+    </style>
   </head>
   <body>
     <header>
-      <h1>A simple three.js app</h1>
+      <h1>Brick Visualizer</h1>
 
-      <!-- Меню выбора модели -->
-      <nav id="model-menu">
-        <label for="modelSelect">Выбрать модель:</label>
-        <select id="modelSelect">
-          <option value="none" selected>— нет модели —</option>
-          <option value="model_four">model_four</option>
-          <option value="six">six</option>
-        </select>
-        <button id="unloadBtn" title="Убрать модель со сцены">Убрать модель</button>
+      <!-- Панель выбора параметров -->
+      <nav class="panel" id="config-panel" aria-label="Конфигуратор">
+        <fieldset>
+          <legend>Проект</legend>
+          <div class="row">
+            <select id="model-select" style="padding: 8px; border-radius: 6px; border: 1px solid #6665;">
+              <option value="">— Выберите проект дома —</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Тип материала</legend>
+          <div class="options">
+            <label><input type="radio" name="textureType" value="brick" /> Кирпич</label>
+            <label><input type="radio" name="textureType" value="metal" /> Металл</label>
+            <label><input type="radio" name="textureType" value="stone" /> Камень</label>
+            <label><input type="radio" name="textureType" value="wood" /> Дерево</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Вариант текстуры</legend>
+          <div class="options" id="texture-variant-options"></div>
+          <div class="row">
+            <button id="applyOnceBtn" class="btn" type="button">Загрузить текстуру</button>
+          </div>
+        </fieldset>
+
+        <div class="row">
+          <button id="loadBtn" class="btn" disabled>Загрузить проект</button>
+          <button id="resetBtn" class="btn" type="button">Сбросить</button>
+          <span id="status" aria-live="polite"></span>
+        </div>
       </nav>
     </header>
 
     <main>
-      <div id="container3D"></div>
+      <!-- Карточка-просмотрщик 3D -->
+      <div class="viewer-card">
+        <div class="viewer-header">Визуализация дома</div>
+        <div id="container3D" class="viewer-canvas" role="region" aria-label="3D-сцена"></div>
+      </div>
     </main>
 
     <script type="module" src="js/main.js"></script>
